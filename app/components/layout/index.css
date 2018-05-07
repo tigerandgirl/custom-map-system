@@ -1,0 +1,16 @@
+ 
+.ant-layout-logo {
+  display: block;
+  width: 150px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  color: #f36000;
+  background: #fff;
+  border-radius: 6px;
+  margin: 16px auto;
+}
+.ant-layout-sider {
+  min-height: 100%;
+}
+  

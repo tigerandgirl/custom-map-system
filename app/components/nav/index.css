@@ -1,0 +1,9 @@
+:root{
+	--navBgColor: red;
+	--navFontColor: green;
+}
+
+/*nav组件*/
+.nav{width: 100%;font-size: 20px;position: fixed;left:0;bottom: 0;z-index:999;background: var(--navBgColor);}
+.nav__item{color: #000;}
+.nav__item--actice{color: var(--navFontColor);}
