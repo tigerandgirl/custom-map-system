@@ -36,7 +36,7 @@ const devConfig = {
   plugins: [
     //自动打开浏览器
     new OpenBrowserPlugin({
-      url: `http://localhost:3001`,
+      url: `http://localhost:3002`,
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
@@ -48,7 +48,7 @@ const devConfig = {
   devtool: '#cheap-module-eval-source-map',
   devServer: {
     contentBase: path.resolve(__dirname, '../dist/'),
-    port: '3001',
+    port: '3002',
     watchContentBase: true,
     historyApiFallback: true,
     compress: true,

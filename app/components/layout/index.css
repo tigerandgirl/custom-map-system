@@ -13,4 +13,25 @@
 .ant-layout-sider {
   min-height: 100%;
 }
+.layout-usr-wrp{
+  float: right;
+  display: flex;
+  margin-top: 16px;
+}
+.layout-avata-wrp{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  /* border: 1px solid #f36000; */
+  position: relative;
+  margin-right: 20px;
+  overflow: hidden;
+}
+.img-avata{
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
   

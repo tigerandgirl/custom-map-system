@@ -31,6 +31,10 @@ class MyLayout extends React.Component {
     history.push('/login')
   }
 
+  toHome = () => {
+    history.push('/')
+  }
+
   render() {
     return (
       <Layout>
@@ -39,7 +43,7 @@ class MyLayout extends React.Component {
           collapsible
           collapsed={this.state.collapsed}
         >
-          <div className="ant-layout-logo">包银消费金融</div>
+          <div className="ant-layout-logo" onClick={this.toHome.bind(this)}>包银消费金融</div>
           <CommonMenu />
         </Sider>
         <Layout>
@@ -49,7 +53,13 @@ class MyLayout extends React.Component {
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
             /> */}
-            <Button onClick={this.logout}>退出</Button>
+            <span>标题</span>
+            <div className="layout-usr-wrp">
+              <div className="layout-avata-wrp">
+                <img className="img-avata" src={require('../../assets/images/favicon.png')} />
+              </div>
+              <Button onClick={this.logout}>退出</Button>
+            </div>
           </Header>
           <Content style={{margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280}}>
             <Switch>

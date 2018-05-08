@@ -39,10 +39,11 @@ const prodConfig = {
               publicPath: '/'
             }
           },
-          {
-            loader: 'image-webpack-loader',
-            options: {bypassOnDebug: true}
-          }
+          // 20180508 打包出错-故注掉
+          // {
+          //   loader: 'image-webpack-loader',
+          //   options: {bypassOnDebug: true}
+          // }
         ]
       },
       {
