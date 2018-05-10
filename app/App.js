@@ -12,6 +12,8 @@ class App extends React.Component {
         this.state = { show: false };
 	}
     componentDidMount(){
+        //去除html遮罩层
+        store.hideLayer();
         //模拟初始化请求
         setTimeout(() => this.setState({ show: true }), 2000);
     }

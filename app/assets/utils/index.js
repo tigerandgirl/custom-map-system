@@ -9,8 +9,12 @@
  * @return {[string or null]}
  */
 export const getUrlParam = (search, name) => {
-  	const r = search.substr(1).match(new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i'));
-  	return r != null ? r[2] : null;
+    if(search != '') {
+        const r = search.substr(1).match(new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i'));
+        return r != null ? r[2] : null;
+    }else{
+        return '';
+    }
 };
 
 /**

@@ -1,6 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import mainStore from '../stores/index';
+import Tree from '../components/tree';
 
 @observer
 export default class extends React.Component {
@@ -10,8 +11,8 @@ export default class extends React.Component {
 	render(){
 		return (
 			<div className="page error-page">
-				<h1>Test1</h1>
-				{/* <p>hash方式传参为: aaaa: { this.props.match.params.aaaa } | bbbb: { this.props.match.params.bbbb }</p> */}
+				<h1>Tree</h1>
+				<Tree />
 			</div>
 		);
 	}

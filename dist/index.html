@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="x-dns-prefetch-control" content="on"><meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no, email=no"><meta name="renderer" content="webkit"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="HandheldFriendly" content="true"><meta name="MobileOptimized" content="320"><meta name="screen-orientation" content="portrait"><meta name="x5-orientation" content="portrait"><meta name="full-screen" content="yes"><meta name="x5-fullscreen" content="true"><meta name="browsermode" content="application"><meta name="x5-page-mode" content="app"><meta name="msapplication-tap-highlight" content="no"><link rel="dns-prefetch" href="//www.baoyinxiaofei.com"><link rel="dns-prefetch" href="//cdn.bootcss.com"><link rel="shortcut icon" href="/images/favicon.fe811.png" type="image/x-icon"><link rel="stylesheet" type="text/css" href="./styles/index.d16a4.css"><title>包银消费金融</title></head><body><div id="root"></div><script src="https://cdn.bootcss.com/lazyload/2.0.3/lazyload-min.js"></script><script src="https://cdn.bootcss.com/react/16.2.0/umd/react.production.min.js"></script><script src="https://cdn.bootcss.com/react-dom/16.0.0/umd/react-dom.production.min.js"></script><script src="https://cdn.bootcss.com/react-router-dom/4.2.2/react-router-dom.min.js"></script><script src="https://cdn.bootcss.com/mobx/3.6.1/mobx.umd.min.js"></script><script src="https://cdn.bootcss.com/mobx-react/4.4.3/index.min.js"></script><script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script><script id="bsb_css">(function(){
+		var jsArr=['./scripts/common.d16a4.js','./scripts/index.d16a4.js'],doc=document,flag=false,_bj=[];
+		for(var a=0;a<localStorage.length;a++){
+			var it=localStorage.key(a);
+			if(it.indexOf('js')!=-1){_bj.push(it);}
+		}
+		for(var i=0;i<jsArr.length;i++){
+			(function(j){
+				var jt=localStorage.getItem(j);
+				if(jt){
+					var script=document.createElement('script');
+					script.setAttribute('type','text/javascript');
+					script.innerHTML=jt;
+					doc.body.appendChild(script)
+				}else{
+					flag=true;
+					axios.get(j).then(function(data){
+						localStorage.setItem(j,data.data);
+					});
+				}
+			})(jsArr[i]);
+		}
+		if(flag){
+			LazyLoad.js(jsArr,function(){});
+			for(var m=0;m<_bj.length;m++){
+				localStorage.removeItem(_bj[m]);
+			}
+		}
+	})();</script></body></html>

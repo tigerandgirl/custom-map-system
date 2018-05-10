@@ -4,6 +4,7 @@
 > - 启用模块热更新（hot module replacement）
 > - 额外的 webpack-dev-server 配置项，API Proxy 配置项
 > - 输出 Sourcemap
+
 ## 生产环境
 > - NODE_ENV 为 production
 > - 将 React、jQuery 等常用库设置为 external，直接采用 CDN 线上的版本
@@ -19,17 +20,11 @@
 > - API接口测试: npm run api
 
 ## css编写
-> - 使用了cssnext，postcss-px2rem，因此无需考虑兼容性，样式单位直接写px，webpack自动转rem
-```
-以iphone6设计草稿为基准，设计图一个盒子宽为40px(实际上就为20px),那么直接写40px
-postcss-px2rem，设置remUnit=200,会自动将40px转为40/200 = 0.2rem
----------------------postcss.config.js----------------------------
-module.exports = {
-  plugins: [
-    require('postcss-cssnext'),
-    require('postcss-px2rem')({
-        remUnit: 200
-    })
-  ]
-};
-```
+> - 使用了cssnext
+
+## 功能模块列表
+> - 引入antd的menu完成整体布局及交互 - 100%
+> - 简单的评论模块（mobx记录数据） - 100%
+> - 引入echarts并实现异步加载 - 100%
+> - 封装项目用的树结构 - 0%
+> - 封装项目用的评论模块（包括列表分页展示，星级评分，文本域等）- 0%

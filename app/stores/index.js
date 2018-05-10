@@ -8,18 +8,19 @@ class MainStore {
       this.getName();
     }
     @observable user = {};
-    @observable selectedKeys = 1;
-    @observable pageUrl = '';
+    @observable isLayerShow = true; //遮罩层显示状态
     @action getName = async () => {
         this.user = {id: 1, name: 'tester'};
     };
-    // 更新选中菜单状态
-    @action updateSelectedKeys = async (key) => {
-        this.selectedKeys = key;
-    }
-    // 获取url
-    @action getUrl = async (url) => {
-        this.pageUrl = url;
+    //隐藏html遮罩层
+    @action hideLayer = async () => {
+        this.isLayerShow = false;
+        //隐藏遮罩层
+        let rootDom=document.documentElement; //html标签
+        rootDom.className='loaded';
+        setTimeout(()=>{
+            rootDom.className='loaded end';
+        },600);
     }
 }
 

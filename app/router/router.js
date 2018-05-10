@@ -2,6 +2,7 @@ import React from 'react';
 import Bundle from '../projectTools/bundle';
 
 export default [
+  //首页
   {
     path: '/',
     exact: true,
@@ -9,6 +10,7 @@ export default [
       return <Bundle {...props} load={() => import('../pages/Home')}/>;
     }
   },
+  //登录页
   {
     path: '/login',
     exact: true,
@@ -45,10 +47,10 @@ export default [
     }
   },
   {
-    path: '/sub1/test1',
+    path: '/sub1/tree',
     exact: true,
     component(props) {
-      return <Bundle {...props} load={() => import('../pages/Test1')} />;
+      return <Bundle {...props} load={() => import('../pages/Tree')} />;
     }
   },
   {
@@ -58,6 +60,31 @@ export default [
       return <Bundle {...props} load={() => import('../pages/Test2')} />;
     }
   },
+  //用户群画像页面
+  {
+    path: '/customGroup',
+    exact: true,
+    component(props) {
+      return <Bundle {...props} load={() => import('../pages/CustomGroup')} />;
+    }
+  },
+  //客户轮廓页面
+  {
+    path: '/custom',
+    exact: true,
+    component(props) {
+      return <Bundle {...props} load={() => import('../pages/Custom')} />;
+    }
+  },
+  //标签详情页面
+  {
+    path: '/tagDetail',
+    exact: true,
+    component(props) {
+      return <Bundle {...props} load={() => import('../pages/TagDetail')} />;
+    }
+  },
+  //错误页
   {
     path: '/error',
     exact: true,

@@ -1,17 +1,19 @@
  
 .ant-layout-logo {
   display: block;
-  width: 150px;
-  height: 32px;
-  line-height: 32px;
+  width: 100%;
+  height: 64px;
+  line-height: 64px;
   text-align: center;
-  color: #f36000;
-  background: #fff;
-  border-radius: 6px;
-  margin: 16px auto;
+  color: #fff;
+  background: #D55F41;
+  margin: 0 auto;
+  font-size: 20px;
+  cursor: pointer;
 }
 .ant-layout-sider {
   min-height: 100%;
+  width: 180px;
 }
 .layout-usr-wrp{
   float: right;
@@ -31,7 +33,15 @@
   width: 100%;
   position: absolute;
   top: 50%;
-  left:50%;
+  left: 50%;
   transform: translate(-50%,-50%);
+}
+.ant-layout-header {
+  background: #f29930;
+  color: #fff;
+  height: 64px;
+  line-height: 64px;
+  font-size: 18px;
+  padding-left: 50px;
 }
   

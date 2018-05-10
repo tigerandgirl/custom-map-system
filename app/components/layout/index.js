@@ -6,6 +6,7 @@ import {
 import router from '../../router/router';
 
 import CommonMenu from '../menu/index';
+import RightSidebar from '../rightsidebar/index';
 import PrivateRoute from '../../projectTools/PrivateRoute';
 import {withRouter} from "react-router";
 import history from "../../projectTools/history";
@@ -43,11 +44,11 @@ class MyLayout extends React.Component {
           collapsible
           collapsed={this.state.collapsed}
         >
-          <div className="ant-layout-logo" onClick={this.toHome.bind(this)}>包银消费金融</div>
+          <div className="ant-layout-logo" onClick={this.toHome.bind(this)}>首页</div>
           <CommonMenu />
         </Sider>
-        <Layout>
-          <Header style={{background: '#fff', paddingLeft: '50px'}}>
+        <Layout style={{background:'#fff'}}>
+          <Header>
             {/* <Icon
               className="trigger"
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
@@ -69,6 +70,7 @@ class MyLayout extends React.Component {
             </Switch>
           </Content>
         </Layout>
+        <RightSidebar />
       </Layout>
     );
   }

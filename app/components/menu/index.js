@@ -12,7 +12,7 @@ const commonMenu = withRouter(({history}) => {
             defaultSelectedKeys={['/']} 
             selectedKeys={[history.location.pathname]} 
             defaultOpenKeys={[history.location.pathname.split('/')[1]]}>
-        <Menu.Item key="/">
+        <Menu.Item key="/" style={{marginTop: '0'}}>
           <Icon type="user"/>
           <span>home</span>
           <NavLink to='/'></NavLink>
@@ -22,9 +22,9 @@ const commonMenu = withRouter(({history}) => {
                 <span>page1</span>
                 <NavLink to='/sub1/page1'></NavLink>
             </Menu.Item>
-            <Menu.Item key="/sub1/test1">
-                <span>test1</span>
-                <NavLink to='/sub1/test1'></NavLink>
+            <Menu.Item key="/sub1/tree">
+                <span>tree</span>
+                <NavLink to='/sub1/tree'></NavLink>
             </Menu.Item>
             <Menu.Item key="/sub1/test2">
                 <span>test2</span>
@@ -45,6 +45,16 @@ const commonMenu = withRouter(({history}) => {
           <Icon type="pie-chart"/>
           <span>echart</span>
           <NavLink to='/echart'></NavLink>
+        </Menu.Item>
+        <Menu.Item key="/customGroup">
+          <Icon type="usergroup-add"/>
+          <span>客户群画像</span>
+          <NavLink to='/customGroup'></NavLink>
+        </Menu.Item>
+        <Menu.Item key="/custom">
+          <Icon type="user"/>
+          <span>客户轮廓</span>
+          <NavLink to='/custom'></NavLink>
         </Menu.Item>
       </Menu>
     </div>
