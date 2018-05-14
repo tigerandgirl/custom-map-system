@@ -79,11 +79,40 @@ export default [
   //标签详情页面
   {
     path: '/tagDetail',
-    exact: true,
+    exact: false,
     component(props) {
       return <Bundle {...props} load={() => import('../pages/TagDetail')} />;
     }
+    // ,
+    // childRoutes: [
+    //   { 
+    //     path: '/tagDetailAll', 
+    //     component(props) {
+    //       return <Bundle {...props} load={() => import('../pages/TagDetailAll')} />;
+    //     }
+    //   },
+    //   { 
+    //     path: '/tagDetailCon', 
+    //     component(props) {
+    //       return <Bundle {...props} load={() => import('../pages/TagDetailCon')} />;
+    //     }
+    //   }
+    // ]
   },
+  // {
+  //   path: '/tagDetail/tagDetailAll',
+  //   exact: true,
+  //   component(props) {
+  //     return <Bundle {...props} load={() => import('../pages/TagDetailAll')} />;
+  //   }
+  // },
+  // {
+  //   path: '/tagDetail/tagDetailCon',
+  //   exact: true,
+  //   component(props) {
+  //     return <Bundle {...props} load={() => import('../pages/TagDetailCon')} />;
+  //   }
+  // },
   //错误页
   {
     path: '/error',

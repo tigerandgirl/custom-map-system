@@ -56,6 +56,31 @@ const commonMenu = withRouter(({history}) => {
           <span>客户轮廓</span>
           <NavLink to='/custom'></NavLink>
         </Menu.Item>
+        <Menu.Item key="/tagDetail">
+          <Icon type="user"/>
+          <span>标签详情-全部</span>
+          <NavLink to='/tagDetail'></NavLink>
+        </Menu.Item>
+        <Menu.Item key="/tagDetail/123">
+          <Icon type="user"/>
+          <span>标签详情-详情</span>
+          <NavLink to='/tagDetail/123'></NavLink>
+        </Menu.Item>
+        <Menu.Item key="/a">
+          <Icon type="user"/>
+          <span>测试</span>
+          <NavLink to='/a'></NavLink>
+        </Menu.Item>
+        <Menu.Item key="/b">
+          <Icon type="user"/>
+          <span>测试</span>
+          <NavLink to='/b'></NavLink>
+        </Menu.Item>
+        <Menu.Item key="/c">
+          <Icon type="user"/>
+          <span>测试</span>
+          <NavLink to='/c'></NavLink>
+        </Menu.Item>
       </Menu>
     </div>
   )

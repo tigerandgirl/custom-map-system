@@ -39,7 +39,7 @@ class MyLayout extends React.Component {
   render() {
     return (
       <Layout>
-        <Sider
+        <Sider style={{paddingBottom: "50px"}}
           trigger={null}
           collapsible
           collapsed={this.state.collapsed}

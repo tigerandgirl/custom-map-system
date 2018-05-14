@@ -16,7 +16,7 @@ export default class extends React.Component {
 	}
 	render(){
 		return (
-			<div className="page error-page">
+			<div className="page">
 				<h1>登录页</h1>
         		<Button onClick={this.loginMethod}>点击模拟登陆</Button>
 				{/* <p>hash方式传参为: aaaa: { this.props.match.params.aaaa } | bbbb: { this.props.match.params.bbbb }</p> */}

@@ -16,7 +16,8 @@ export default class extends React.Component {
     }
     // 跳转标签详情页
     handleToDetail(id){
-        history.push(`/tagDetail?id=${id}`);
+        // history.push(`/tagDetail/tagDetailCon?id=${id}`);
+        history.push(`/tagDetail/tagDetailCon`);
     }
     // 展示列表
     handleShowList(){

@@ -1,128 +1,125 @@
 import React from 'react';
-import { Tree, Input } from 'antd';
-import { runInAction } from 'mobx';
+import { Tree, Input, Button } from 'antd';
 
 const TreeNode = Tree.TreeNode;
 const Search = Input.Search;
 
-const x = 3;
-const y = 2;
-const z = 1;
-const gData = [];
-//生成树据
-const generateData = (_level, _preKey, _tns) => {
-  const preKey = _preKey || '0';
-  const tns = _tns || gData;
+const treeData = [{
+  title: '0-0',
+  key: '0-0',
+  children: [{
+    title: '0-0-0',
+    key: '0-0-0',
+    children: [
+      { title: '0-0-0-0', key: '0-0-0-0' },
+      { title: '0-0-0-1', key: '0-0-0-1' },
+      { title: '0-0-0-2', key: '0-0-0-2' },
+    ],
+  }, {
+    title: '0-0-1',
+    key: '0-0-1',
+    children: [
+      { title: '0-0-1-0', key: '0-0-1-0' },
+      { title: '0-0-1-1', key: '0-0-1-1' },
+      { title: '0-0-1-2', key: '0-0-1-2' },
+    ],
+  }, {
+    title: '0-0-2',
+    key: '0-0-2',
+  }],
+}, {
+  title: '0-1',
+  key: '0-1',
+  children: [
+    { title: '0-1-0-0', key: '0-1-0-0' },
+    { title: '0-1-0-1', key: '0-1-0-1' },
+    { title: '0-1-0-2', key: '0-1-0-2' },
+  ],
+}, {
+  title: '0-2',
+  key: '0-2',
+}];
 
-  const children = [];
-  for (let i = 0; i < x; i++) {
-    const key = `${preKey}-${i}`;
-    tns.push({ title: key, key });
-    if (i < y) {
-      children.push(key);
+export default class extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      expandedKeys: ['0-0-0'],
+      autoExpandParent: true,
+      checkedKeys: ['0-0-0-0'],
+      checkedNodes: [],
+      selectedKeys: ['0-0-0-1'],
+      searchData: ''
     }
   }
-  if (_level < 0) {
-    return tns;
+  //展开树时
+  onExpand = (expandedKeys) => {
+    console.log('onExpand', arguments);
+    // if not set autoExpandParent to false, if children expanded, parent can not collapse.
+    // or, you can remove all expanded children keys.
+    this.setState({
+      expandedKeys,
+      autoExpandParent: false,
+    });
   }
-  const level = _level - 1;
-  children.forEach((key, index) => {
-    tns[index].children = [];
-    return generateData(level, key, tns[index].children);
-  });
-};
-generateData(z);
-
-const dataList = [];
-const generateList = (data) => {
-  for (let i = 0; i < data.length; i++) {
-    const node = data[i];
-    const key = node.key;
-    dataList.push({ key, title: key });
-    if (node.children) {
-      generateList(node.children, node.key);
-    }
+  // 点击节点复选框时
+  onCheck = (checkedKeys, e) => {
+    console.log('onCheck', e);
+    const checkedNodes = e.checkedNodes;
+    this.setState({ checkedKeys, checkedNodes });
   }
-};
-generateList(gData);
-
-const getParentKey = (key, tree) => {
-  let parentKey;
-  for (let i = 0; i < tree.length; i++) {
-    const node = tree[i];
-    if (node.children) {
-      if (node.children.some(item => item.key === key)) {
-        parentKey = node.key;
-      } else if (getParentKey(key, node.children)) {
-        parentKey = getParentKey(key, node.children);
-      }
-    }
+  // 点击某节点时
+  onSelect = (selectedKeys, info) => {
+    console.log('onSelect', info);
+    this.setState({ selectedKeys });
   }
-  return parentKey;
-};
-
-export default class extends React.Component{
-    state = {
-        expandedKeys: [],
-        searchValue: '',
-        autoExpandParent: true,
-      }
-      onExpand = (expandedKeys) => {
-        this.setState({
-          expandedKeys,
-          autoExpandParent: false,
-        });
-      }
-      onChange = (e) => {
-        const value = e.target.value;
-        const expandedKeys = dataList.map((item) => {
-          if (item.key.indexOf(value) > -1) {
-            return getParentKey(item.key, gData);
-          }
-          return null;
-        }).filter((item, i, self) => item && self.indexOf(item) === i);
-        this.setState({
-          expandedKeys,
-          searchValue: value,
-          autoExpandParent: true,
-        });
-      }
-      render() {
-        const { searchValue, expandedKeys, autoExpandParent } = this.state;
-        const loop = data => data.map((item) => {
-          const index = item.key.indexOf(searchValue);
-          console.log(`index: ${index}`)
-          const beforeStr = item.key.substr(0, index);
-          console.log(`beforeStr: ${beforeStr}`)
-          const afterStr = item.key.substr(index + searchValue.length);
-          console.log(`afterStr: ${afterStr}`)
-          const title = index > -1 ? (
-            <span>
-              {beforeStr}
-              <span style={{ color: '#f50' }}>{searchValue}</span>
-              {afterStr}
-            </span>
-          ) : <span>{item.key}</span>;
-          if (item.children) {
-            return (
-              <TreeNode key={item.key} title={title}>
-                {loop(item.children)}
-              </TreeNode>
-            );
-          }
-          return <TreeNode key={item.key} title={title} />;
-        });
+  // 搜索框输入时
+  onChange = (e) => {
+    const value = e.target.value;
+    this.setState({
+      searchData: value
+    })
+  }
+  // 点击搜索或按下回车键时的回调
+  onSearch = (e) => {
+    console.log(this.state.searchData)
+  }
+  // 将选中的节点展示在右侧
+  outputSelectedNodes(checkedNodes){
+    console.log(checkedNodes)
+  }
+  renderTreeNodes = (data) => {
+    return data.map((item) => {
+      if (item.children) {
         return (
-          <div>
-            <Search style={{ marginBottom: 8 }} placeholder="Search" onChange={this.onChange} />
-            <Tree
-              onExpand={this.onExpand}
-              expandedKeys={expandedKeys}
-              autoExpandParent={autoExpandParent}
-            >
-              {loop(gData)}
-            </Tree>
-          </div>
+          <TreeNode title={item.title} key={item.key} dataRef={item}>
+            {this.renderTreeNodes(item.children)}
+          </TreeNode>
         );
       }
+      return <TreeNode {...item} />;
+    });
+  }
+  render() {
+    return (
+      <div style={{ width: "250px", border: "1px solid #ccc", borderRadius: "5px", padding:"10px" }}>
+        <Search placeholder="Search" onChange={this.onChange} onSearch={this.onSearch} />
+        <Tree
+          checkable
+          onExpand={this.onExpand}
+          expandedKeys={this.state.expandedKeys}
+          autoExpandParent={this.state.autoExpandParent}
+          onCheck={this.onCheck}
+          checkedKeys={this.state.checkedKeys}
+          onSelect={this.onSelect}
+          selectedKeys={this.state.selectedKeys}
+        >
+          {this.renderTreeNodes(treeData)}
+        </Tree>
+        <Button 
+          style={{display:"block",margin: "10px auto"}} 
+          onClick={this.outputSelectedNodes.bind(this,this.state.checkedNodes)}>确定</Button>
+      </div>
+    );
+  }
 }
