@@ -51,7 +51,7 @@ const commonMenu = withRouter(({history}) => {
           <span>客户群画像</span>
           <NavLink to='/customGroup'></NavLink>
         </Menu.Item>
-        <Menu.Item key="/custom">
+        <Menu.Item key="/custom"> 
           <Icon type="user"/>
           <span>客户轮廓</span>
           <NavLink to='/custom'></NavLink>
