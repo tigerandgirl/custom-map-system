@@ -17,7 +17,17 @@ export default class extends React.Component {
     // 跳转标签详情页
     handleToDetail(id){
         // history.push(`/tagDetail/tagDetailCon?id=${id}`);
-        history.push(`/tagDetail/tagDetailCon`);
+        history.push(`/tagDetail/123?id=${id}`);
+        this.setState({
+            show: false
+        })
+    }
+    // 跳转标签全景页
+    handleToTagDetailAll(){
+        history.push(`/tagDetail`);
+        this.setState({
+            show: false
+        })
     }
     // 展示列表
     handleShowList(){
@@ -138,7 +148,7 @@ export default class extends React.Component {
                             <li className="sidebar-li" key={item.id} onClick={this.handleToDetail.bind(this, item.id)} >{++i}. {item.name}</li>
                         )}
                     </ul>
-                    <div className="sidebar-more-btn">更多 <Icon type="right" /></div>
+                    <div className="sidebar-more-btn" onClick={this.handleToTagDetailAll.bind(this)}>更多 <Icon type="right" /></div>
                 </div>
 
 			</div>

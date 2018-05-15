@@ -54,10 +54,10 @@ export default [
     }
   },
   {
-    path: '/sub1/test2',
+    path: '/sub1/table',
     exact: true,
     component(props) {
-      return <Bundle {...props} load={() => import('../pages/Test2')} />;
+      return <Bundle {...props} load={() => import('../pages/TableSheets')} />;
     }
   },
   //用户群画像页面
@@ -83,36 +83,7 @@ export default [
     component(props) {
       return <Bundle {...props} load={() => import('../pages/TagDetail')} />;
     }
-    // ,
-    // childRoutes: [
-    //   { 
-    //     path: '/tagDetailAll', 
-    //     component(props) {
-    //       return <Bundle {...props} load={() => import('../pages/TagDetailAll')} />;
-    //     }
-    //   },
-    //   { 
-    //     path: '/tagDetailCon', 
-    //     component(props) {
-    //       return <Bundle {...props} load={() => import('../pages/TagDetailCon')} />;
-    //     }
-    //   }
-    // ]
   },
-  // {
-  //   path: '/tagDetail/tagDetailAll',
-  //   exact: true,
-  //   component(props) {
-  //     return <Bundle {...props} load={() => import('../pages/TagDetailAll')} />;
-  //   }
-  // },
-  // {
-  //   path: '/tagDetail/tagDetailCon',
-  //   exact: true,
-  //   component(props) {
-  //     return <Bundle {...props} load={() => import('../pages/TagDetailCon')} />;
-  //   }
-  // },
   //错误页
   {
     path: '/error',

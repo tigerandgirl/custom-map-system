@@ -26,9 +26,9 @@ const commonMenu = withRouter(({history}) => {
                 <span>tree</span>
                 <NavLink to='/sub1/tree'></NavLink>
             </Menu.Item>
-            <Menu.Item key="/sub1/test2">
-                <span>test2</span>
-                <NavLink to='/sub1/test2'></NavLink>
+            <Menu.Item key="/sub1/table">
+                <span>table</span>
+                <NavLink to='/sub1/table'></NavLink>
             </Menu.Item>
         </SubMenu>
         <Menu.Item key="/page2">
