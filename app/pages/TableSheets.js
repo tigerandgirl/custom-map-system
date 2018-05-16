@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
+import '../pageStyles/TableSheets.css';
 
 const columns = [{
   title: 'Name',
@@ -26,6 +27,8 @@ export default class extends React.Component {
     pagination: {},
     loading: false,
   };
+
+  // 分页、排序、筛选变化时触发
   handleTableChange = (pagination, filters, sorter) => {
     const pager = { ...this.state.pagination };
     pager.current = pagination.current;
@@ -40,16 +43,9 @@ export default class extends React.Component {
       ...filters,
     });
   }
-  
-  // http({
-  //   url: 'https://randomuser.me/api',
-  //   method: 'get',
-  //   data: {
-  //     results: 10,
-  //     ...params,
-  //   }
-  // })
+  // 点击跳转页面的实现？？？？ 行热点 还是 某一项热点
 
+  // 请求数据
   fetch = (params = {}) => {
     console.log('params:', params);
     this.setState({ loading: true });
@@ -72,18 +68,30 @@ export default class extends React.Component {
       console.log(data);
     })
   }
-
+  // 首次请求
   componentDidMount() {
     this.fetch();
   }
+
   render() {
     return (
-      <Table columns={columns}
+      <Table 
+        columns={columns}
         rowKey={record => record.registered}
         dataSource={this.state.data}
         pagination={this.state.pagination}
         loading={this.state.loading}
         onChange={this.handleTableChange}
+        locale={{'emptyText':'暂无数据'}}
+        onRow={(record) => {
+          return {
+            onClick: () => {
+              console.log(record.id);
+              // 跳转客户轮廓
+              AppHistory.push(`/custom?id=${record.id.value}`);
+            }
+          };
+        }}
       />
     );
   }

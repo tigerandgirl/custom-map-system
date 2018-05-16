@@ -17,6 +17,7 @@ import popalert from './components/popalert';
 window.http = http;
 window.API = API;
 window.popalert = popalert;
+window.AppHistory = history;
 
 render(
     <Router history={history}>

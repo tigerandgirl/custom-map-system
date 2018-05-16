@@ -1,6 +1,5 @@
 import React from 'react';
 import { Icon } from 'antd';
-import history from "../../projectTools/history";
 import { observer } from 'mobx-react';
 import mainStore from '../../stores/index';
 import './index.css';
@@ -16,15 +15,14 @@ export default class extends React.Component {
     }
     // 跳转标签详情页
     handleToDetail(id){
-        // history.push(`/tagDetail/tagDetailCon?id=${id}`);
-        history.push(`/tagDetail/123?id=${id}`);
+        AppHistory.push(`/tagDetail/123?id=${id}`);
         this.setState({
             show: false
         })
     }
     // 跳转标签全景页
     handleToTagDetailAll(){
-        history.push(`/tagDetail`);
+        AppHistory.push(`/tagDetail`);
         this.setState({
             show: false
         })

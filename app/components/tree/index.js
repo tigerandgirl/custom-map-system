@@ -102,7 +102,7 @@ export default class extends React.Component {
   }
   render() {
     return (
-      <div style={{ width: "250px", border: "1px solid #ccc", borderRadius: "5px", padding:"10px" }}>
+      <div style={{ width: "250px", border: "2px solid #ccc", borderRadius: "5px", padding:"10px" }}>
         <Search placeholder="Search" onChange={this.onChange} onSearch={this.onSearch} />
         <Tree
           checkable

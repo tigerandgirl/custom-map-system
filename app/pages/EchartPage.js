@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import asyncComponent from '../projectTools/echart/AsyncComponent';
 import { Spin,Icon } from 'antd';
-import { pieOption, barOption, lineOption, scatterOption, mapOption, radarOption, candlestickOption } from '../projectTools/echart/optionConfig/options'
+import { pieOption, barOption, lineOption, scatterOption, mapOption, radarOption, candlestickOption, wordCloudOption } from '../projectTools/echart/optionConfig/options'
 const PieReact = asyncComponent(() => import(/* webpackChunkName: "PieReact" */'../components/echarts/MapReact'))  //饼图组件
 const BarReact = asyncComponent(() => import(/* webpackChunkName: "BarReact" */'../components/echarts/BarReact')) //柱状图组件
 const LineReact = asyncComponent(() => import(/* webpackChunkName: "LineReact" */'../components/echarts/LineReact'))  //折线图组件
@@ -9,6 +9,7 @@ const ScatterReact = asyncComponent(() => import(/* webpackChunkName: "ScatterRe
 const MapReact = asyncComponent(() => import(/* webpackChunkName: "MapReact" */'../components/echarts/MapReact'))  //地图组件
 const RadarReact = asyncComponent(() => import(/* webpackChunkName: "RadarReact" */'../components/echarts/RadarReact')) //雷达图组件
 const CandlestickReact = asyncComponent(() => import(/* webpackChunkName: "CandlestickReact" */'../components/echarts/CandlestickReact')) //k线图组件
+const WordCloudReact = asyncComponent(() => import(/* webpackChunkName: "WordCloudReact" */'../components/echarts/WordCloudReact')) //云词图组件
 const antIcon = <Icon type="loading-3-quarters" style={{ fontSize: 24 }} spin />;
 
 export default class extends Component {
@@ -62,6 +63,9 @@ export default class extends Component {
         <h2>k线图react组件实现</h2>
         <CandlestickReact option={candlestickOption} />
         <hr/>
+  
+        <h2>云词图react组件实现</h2>
+        {/* <WordCloudReact option={wordCloudOption.option} maskImage={wordCloudOption.maskImage} /> */}
       </Spin>
     );
   }

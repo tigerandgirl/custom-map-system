@@ -48,12 +48,12 @@ const commonMenu = withRouter(({history}) => {
         </Menu.Item>
         <Menu.Item key="/customGroup">
           <Icon type="usergroup-add"/>
-          <span>客户群画像</span>
+          <span>用户群画像</span>
           <NavLink to='/customGroup'></NavLink>
         </Menu.Item>
         <Menu.Item key="/custom"> 
           <Icon type="user"/>
-          <span>客户轮廓</span>
+          <span>用户个体画像</span>
           <NavLink to='/custom'></NavLink>
         </Menu.Item>
         <Menu.Item key="/tagDetail">

@@ -1,14 +1,14 @@
 .ant-table th {
   width: 100px;
 }
-  
 .ant-table-thead > tr > th, .ant-table-tbody > tr > td{
-  padding: 0 5px; 
+  padding: 0 5px;
 }
 .ant-table td {
   /*white-space: nowrap;*/
   width: 100px;
   height: 50px;
+  cursor: pointer;
 }
 .ant-table-placeholder{
   z-index: 0;
