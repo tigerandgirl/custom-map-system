@@ -17,7 +17,7 @@ export default class extends React.Component{
 			<div className="page home">
              	<h1 onClick={()=>{alert(111)}}>首页：{store.user.name}</h1>
              	<div className="testImg"></div>
-             	<img src={require('../assets/images/test.png')} />
+             	<img src={require('../assets/images/timg.jpeg')} />
 				<br />
 				<div style={{width:"500px"}}>
 					{arr.map((item, i) => {
